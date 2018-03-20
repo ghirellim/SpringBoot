@@ -1,0 +1,14 @@
+spring:
+    datasource:
+      url: jdbc:mysql://localhost:3306/Crud?userSSL=false
+      username: root
+      password: root
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+        naming:
+          strategy: org.hibernate.cfg.improvedNamingStrategy
+      properties:
+        hibernate:
+           dialect: org.hibernate.dialect.MySQL5Dialect

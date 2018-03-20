@@ -24,23 +24,20 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-
 		super.postHandle(request, response, handler, modelAndView);
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		LOG.info("Tercero");
 		long startTime = (long) request.getAttribute("startTime");
-		LOG.info("--REQUEST URL: '" + request.getRequestURL().toString() + "' -- TOTAL TIME: '"
-				+ (System.currentTimeMillis() - startTime) + "ms.");
+		LOG.info("--Url to: '" + request.getRequestURL().toString() + "' -- in: '"
+				+ (System.currentTimeMillis() - startTime) + "ms.'");
 	}
 
 	@Override
 	public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		LOG.info("Cuarto");
 		super.afterConcurrentHandlingStarted(request, response, handler);
 	}
 
